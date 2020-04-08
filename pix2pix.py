@@ -17,6 +17,9 @@
 #  --input_dir facades/val \
 #  --checkpoint facades_train
 
+# requires gpu compputing toolkit, put dll in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin
+# set_random_seed ==> tf.random.set_seed() (line 563)
+
 
 from __future__ import absolute_import
 from __future__ import division
@@ -557,7 +560,7 @@ def main():
     if a.seed is None:
         a.seed = random.randint(0, 2**31 - 1)
 
-    tf.set_random_seed(a.seed)
+    tf.random.set_seed(a.seed)
     np.random.seed(a.seed)
     random.seed(a.seed)
 
